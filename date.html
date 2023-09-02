@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="date.css">
+    <title>Mathematics exihibition</title>
+    <style>
+    *{
+    margin:0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+body{
+       background-image: url('calender.jpg'); 
+        background-size: cover; 
+        background-repeat: no-repeat; 
+        background-position: center;
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        box-sizing: border-box;
+}
+form{
+    text-align: center;
+    position:relative;
+    top:140px;
+}
+input{
+    position: absolute;
+    left:860px;
+}
+.btn{
+    width: 10%;
+    height: 35px;
+    background: #162938;
+    border:none;
+    outline:none;
+    border-radius: 6px;
+    color:white;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    position: relative;
+    left:5px;
+    top:20px;
+
+}
+.result{
+    position:relative;
+    top:200px;
+    left:30px;
+}
+    </style>
+    </head>
+    <body>
+        <h3><center>Day calculation from date</center></h3><br><br>
+        <form action="/calculate" method="POST">
+            <label for="day">Enter day:</label>
+            <input type="text" id="day" name="day" min="1" max="31"><br><br>
+            <label for="month">Enter month number:</label>
+            <input type="text" id="month" name="month" min="1" max="12"><br><br>
+            <label for="year">Enter year:</label>
+            <input type="text" id="year" name="year"><br><br>
+            <input type="submit" value="Calculate" class="btn">
+        </form>
+        <div class="result">
+        {% if day_name %}
+                <p>The day of the week for {{ day }}/{{ month }}/{{ year }} is {{ day_name }}.</p>
+        {% endif %}
+        </div>
+    </body>
+</html>
